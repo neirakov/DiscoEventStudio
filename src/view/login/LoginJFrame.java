@@ -21,16 +21,6 @@ public class LoginJFrame extends javax.swing.JFrame {
      */
     public LoginJFrame() {
         initComponents();
-        
-        /*
-        --Se esta intentando poner una imagen en el panel pero aún no es funcional
-        
-        pnlFondo = new JPanel();
-        getContentPane().add(pnlFondo);
-        
-        ImageBackground.establecerImagenDeFondo(pnlFondo, "/resources/images/fondoDiscoEventsStudio.png"); // Reemplaza "ruta/imagen.jpg" con la ruta de tu imagen
-        setVisible(true);
-        */
     }
 
     /**

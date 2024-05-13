@@ -16,7 +16,7 @@ public class UsuarioDAOMySQL implements UsuarioDAO {
     @Override
     // Método para verificar si un usuario y contraseña son válidos
     public boolean verificarCredenciales(String nombreUsuario, String contrasena) {
-        String query = "SELECT COUNT(*) AS cuenta FROM Usuarios WHERE idUsuario = ? AND contrasena = ?";
+        String query = "SELECT COUNT(*) AS cuenta FROM Usuarios WHERE usuario = ? AND contrasena = ?";
         try (Connection connection = ConexionBD.getConnection();
              PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setString(1, nombreUsuario);
@@ -35,6 +35,19 @@ public class UsuarioDAOMySQL implements UsuarioDAO {
 
     @Override
     public ArrayList<Usuario> mostrarUsuarios() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        ArrayList<Usuario> usuarios = new ArrayList<>();
+        String query = "SELECT * FROM Usuarios";
+        try (Connection connection = ConexionBD.getConnection(); PreparedStatement statement = connection.prepareStatement(query); ResultSet resultSet = statement.executeQuery()) {
+            while (resultSet.next()) {
+                int idUsuario = resultSet.getInt("id_usuario");
+                String nombreUsuario = resultSet.getString("nombre_usuario");
+                String contrasena = resultSet.getString("contrasena");
+                Usuario usuario = new Usuario(idUsuario, nombreUsuario, contrasena);
+                usuarios.add(usuario);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace(); // Manejo adecuado de errores en la aplicación
+        }
+        return usuarios;
     }
 }

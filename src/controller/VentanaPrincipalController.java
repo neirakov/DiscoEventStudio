@@ -4,6 +4,9 @@
  */
 package controller;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import view.usuarios.UsuariosDialog;
 import view.ventanaPrincipal.VentanaPrincipalDialog;
 
 /**
@@ -15,7 +18,19 @@ public class VentanaPrincipalController {
 
     public VentanaPrincipalController(VentanaPrincipalDialog view) {
         this.view = view;
+  
     }
+    
+    /*private ActionListener gestionUsuariosListener(){
+        ActionListener al = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                UsuariosDialog ud = new UsuariosDialog(view,true);
+                ud.setVisible(true);
+            }
+        };
+        return al;
+    }*/
     
     
     

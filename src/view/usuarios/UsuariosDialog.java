@@ -4,6 +4,11 @@
  */
 package view.usuarios;
 
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+import model.database.Usuario;
+
 /**
  *
  * @author neira
@@ -142,44 +147,37 @@ public class UsuariosDialog extends javax.swing.JDialog {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(UsuariosDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(UsuariosDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(UsuariosDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(UsuariosDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                UsuariosDialog dialog = new UsuariosDialog(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
+    
+    public void setAddUsuarioActionListener(ActionListener listener){
+        this.jButton4.addActionListener(listener);
     }
+    
+    public void setEditarUsuarioActionListener(ActionListener listener){
+        this.jButton1.addActionListener(listener);
+    }
+    
+    public void setEliminarUsuarioActionListener(ActionListener listener){
+        this.jButton2.addActionListener(listener);
+    }
+    
+    public void setVolverActionListener(ActionListener listener){
+        this.jButton3.addActionListener(listener);
+    }
+    
+    public void mostrarUsuarios(ArrayList<Usuario> usuarios) {
+        DefaultTableModel modeloTabla = (DefaultTableModel) jTable1.getModel();
+        modeloTabla.setRowCount(0); // Limpiar la tabla antes de agregar nuevos datos
+
+        for (Usuario usuario : usuarios) {
+            Object[] fila = {usuario.getIdUsuario(), usuario.getContrasena()};
+            modeloTabla.addRow(fila);
+        }
+
+        // Hacer que la tabla sea seleccionable
+        jTable1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+    }
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
