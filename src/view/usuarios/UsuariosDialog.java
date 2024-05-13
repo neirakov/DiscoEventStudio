@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 import model.database.Usuario;
+import view.ventanaPrincipal.VentanaPrincipalDialog;
 
 /**
  *
@@ -18,7 +19,7 @@ public class UsuariosDialog extends javax.swing.JDialog {
     /**
      * Creates new form UsuariosDialog
      */
-    public UsuariosDialog(java.awt.Frame parent, boolean modal) {
+    public UsuariosDialog(java.awt.Frame parent,boolean modal) {
         super(parent, modal);
         initComponents();
     }

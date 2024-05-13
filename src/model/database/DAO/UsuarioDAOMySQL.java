@@ -36,7 +36,7 @@ public class UsuarioDAOMySQL implements UsuarioDAO {
     @Override
     public ArrayList<Usuario> mostrarUsuarios() {
         ArrayList<Usuario> usuarios = new ArrayList<>();
-        String query = "SELECT * FROM Usuarios";
+        String query = "SELECT * FROM Usuarios;";
         try (Connection connection = ConexionBD.getConnection(); PreparedStatement statement = connection.prepareStatement(query); ResultSet resultSet = statement.executeQuery()) {
             while (resultSet.next()) {
                 int idUsuario = resultSet.getInt("id_usuario");

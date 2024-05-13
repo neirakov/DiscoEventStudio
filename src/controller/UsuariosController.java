@@ -33,6 +33,7 @@ public class UsuariosController {
     private void cargarUsuarios() {
         // Obtener la lista de usuarios del DAO
         ArrayList<Usuario> usuarios = usuarioDAO.mostrarUsuarios();
+        System.out.println("dfgdfgdfg");
         
         // Mostrar los usuarios en la tabla de la vista
         view.mostrarUsuarios(usuarios);

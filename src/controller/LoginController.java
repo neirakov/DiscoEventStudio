@@ -20,6 +20,7 @@ import view.ventanaPrincipal.VentanaPrincipalDialog;
 public class LoginController {
     private LoginJFrame view;
     private UsuarioDAOMySQL usuarioDAO;
+    
 
     public LoginController(LoginJFrame view) {
         this.view = view;
@@ -37,6 +38,7 @@ public class LoginController {
                 boolean usuarioCorrecto = usuarioDAO.verificarCredenciales(nombreUsuario,contrasena);
                 if(usuarioCorrecto){
                     VentanaPrincipalDialog vp = new VentanaPrincipalDialog(view,true);
+                    VentanaPrincipalController vpc = new VentanaPrincipalController(vp,view);
                     vp.setVisible(true);                
                 }else {
                     JOptionPane.showMessageDialog(view, "Nombre de usuario o contraseña incorrectos", "Error de inicio de sesión",JOptionPane.ERROR_MESSAGE);

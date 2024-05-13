@@ -4,6 +4,7 @@
  */
 package view.ventanaPrincipal;
 
+import java.awt.event.ActionListener;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
@@ -152,7 +153,9 @@ public class VentanaPrincipalDialog extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
-    public void setGestionUsuariosActionListener(){
+    
+    public void setGestionUsuariosActionListener(ActionListener listener){
+        btnUsuarios.addActionListener(listener);
         
     }
         
