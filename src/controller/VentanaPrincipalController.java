@@ -29,8 +29,8 @@ public class VentanaPrincipalController {
         ActionListener al = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("asdasdasdasdasdasd");
                 UsuariosDialog ud = new UsuariosDialog(mainFrame,true);
+                UsuariosController usc = new UsuariosController(ud);
                 ud.setVisible(true);
                 
             }

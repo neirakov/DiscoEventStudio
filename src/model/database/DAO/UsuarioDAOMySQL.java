@@ -36,14 +36,16 @@ public class UsuarioDAOMySQL implements UsuarioDAO {
     @Override
     public ArrayList<Usuario> mostrarUsuarios() {
         ArrayList<Usuario> usuarios = new ArrayList<>();
-        String query = "SELECT * FROM Usuarios;";
-        try (Connection connection = ConexionBD.getConnection(); PreparedStatement statement = connection.prepareStatement(query); ResultSet resultSet = statement.executeQuery()) {
+        String query = "SELECT id_usuario,usuario,contrasena FROM Usuarios;";
+        try (Connection connection = ConexionBD.getConnection(); Statement stm = connection.createStatement();) {
+            ResultSet resultSet = stm.executeQuery(query);
             while (resultSet.next()) {
                 int idUsuario = resultSet.getInt("id_usuario");
-                String nombreUsuario = resultSet.getString("nombre_usuario");
+                String nombreUsuario = resultSet.getString("usuario");
                 String contrasena = resultSet.getString("contrasena");
                 Usuario usuario = new Usuario(idUsuario, nombreUsuario, contrasena);
                 usuarios.add(usuario);
+                System.out.println(usuario);
             }
         } catch (SQLException e) {
             e.printStackTrace(); // Manejo adecuado de errores en la aplicación

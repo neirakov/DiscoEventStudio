@@ -20,7 +20,7 @@ public class UsuariosController {
     private final UsuariosDialog view;
     private final UsuarioDAO usuarioDAO;
 
-    public UsuariosController(UsuariosDialog view, UsuarioDAO usuarioDAO) {
+    public UsuariosController(UsuariosDialog view) {
         this.view = view;
         this.usuarioDAO = new UsuarioDAOMySQL();
         /*this.view.setAddUsuarioActionListener(listener);*/
@@ -28,6 +28,7 @@ public class UsuariosController {
         /*this.view.setEliminarUsuarioActionListener(listener);*/
         /*this.view.setVolverActionListener(listener);*/
         cargarUsuarios();
+        
     }
     
     private void cargarUsuarios() {
@@ -51,7 +52,7 @@ public class UsuariosController {
     }
     */
     
-        /* TODO COMPLETAR MÉTODO PARA AÑADIR EDITAR Y VISTA CORRESPONDIENTE
+        /* TODO COMPLETAR MÉTODO PARA EDITAR Y VISTA CORRESPONDIENTE
     private ActionListener editarUsuarioListener(){
         ActionListener al = new ActionListener(){
             @Override
