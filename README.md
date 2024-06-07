@@ -1,4 +1,4 @@
-# DiscoEventStudio
+# Disco Events Studio
 Programa ERP de gestión de discotecas móviles
 
 Disco Events Studio Database:
