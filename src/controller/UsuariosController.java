@@ -15,7 +15,7 @@ import model.database.DAO.UsuarioDAOMySQL;
 import model.database.Usuario;
 import view.login.LoginJFrame;
 import view.usuarios.UsuariosDialog;
-import view.usuarios.AñadirUsuarioDialog;
+import view.usuarios.AddUsuarioDialog;
 
 /**
  *
@@ -48,8 +48,8 @@ public class UsuariosController {
         ActionListener al = new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-              AñadirUsuarioDialog dialog = new AñadirUsuarioDialog(mainView, true);
-              AñadirUsuarioController cuc = new AñadirUsuarioController(dialog,usuarioDAO);
+              AddUsuarioDialog dialog = new AddUsuarioDialog(mainView, true);
+              AddUsuarioController cuc = new AddUsuarioController(dialog,usuarioDAO);
               view.dispose();
               dialog.setLocationRelativeTo(null);
               dialog.setVisible(true);

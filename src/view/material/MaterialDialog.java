@@ -4,6 +4,13 @@
  */
 package view.material;
 
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import model.database.Material;
+import model.database.Personal;
+
 /**
  *
  * @author neira
@@ -30,11 +37,10 @@ public class MaterialDialog extends javax.swing.JDialog {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        tablaMaterial = new javax.swing.JTable();
+        btnAddArticulo = new javax.swing.JButton();
+        btnEliminarArticulo = new javax.swing.JButton();
+        btnVolverMaterial = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -47,7 +53,7 @@ public class MaterialDialog extends javax.swing.JDialog {
 
         jScrollPane1.setPreferredSize(new java.awt.Dimension(452, 312));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablaMaterial.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -58,47 +64,37 @@ public class MaterialDialog extends javax.swing.JDialog {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tablaMaterial);
 
-        jButton1.setBackground(new java.awt.Color(251, 234, 136));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/plus-5-32.png"))); // NOI18N
-        jButton1.setText("Añadir articulo");
-        jButton1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jButton1.setMaximumSize(new java.awt.Dimension(162, 39));
-        jButton1.setMinimumSize(new java.awt.Dimension(162, 39));
-        jButton1.setName(""); // NOI18N
-        jButton1.setPreferredSize(new java.awt.Dimension(162, 39));
+        btnAddArticulo.setBackground(new java.awt.Color(251, 234, 136));
+        btnAddArticulo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnAddArticulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/plus-5-32.png"))); // NOI18N
+        btnAddArticulo.setText("Añadir articulo");
+        btnAddArticulo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnAddArticulo.setMaximumSize(new java.awt.Dimension(162, 39));
+        btnAddArticulo.setMinimumSize(new java.awt.Dimension(162, 39));
+        btnAddArticulo.setName(""); // NOI18N
+        btnAddArticulo.setPreferredSize(new java.awt.Dimension(162, 39));
 
-        jButton2.setBackground(new java.awt.Color(251, 234, 136));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/editar32.png"))); // NOI18N
-        jButton2.setText("Editar articulo");
-        jButton2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jButton2.setMaximumSize(new java.awt.Dimension(162, 39));
-        jButton2.setMinimumSize(new java.awt.Dimension(162, 39));
-        jButton2.setName(""); // NOI18N
-        jButton2.setPreferredSize(new java.awt.Dimension(162, 39));
+        btnEliminarArticulo.setBackground(new java.awt.Color(251, 234, 136));
+        btnEliminarArticulo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnEliminarArticulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/x-mark-4-32.png"))); // NOI18N
+        btnEliminarArticulo.setText("Eliminar articulo");
+        btnEliminarArticulo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnEliminarArticulo.setMaximumSize(new java.awt.Dimension(162, 39));
+        btnEliminarArticulo.setMinimumSize(new java.awt.Dimension(162, 39));
+        btnEliminarArticulo.setName(""); // NOI18N
+        btnEliminarArticulo.setPreferredSize(new java.awt.Dimension(162, 39));
 
-        jButton3.setBackground(new java.awt.Color(251, 234, 136));
-        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/x-mark-4-32.png"))); // NOI18N
-        jButton3.setText("Eliminar articulo");
-        jButton3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jButton3.setMaximumSize(new java.awt.Dimension(162, 39));
-        jButton3.setMinimumSize(new java.awt.Dimension(162, 39));
-        jButton3.setName(""); // NOI18N
-        jButton3.setPreferredSize(new java.awt.Dimension(162, 39));
-
-        jButton4.setBackground(new java.awt.Color(251, 234, 136));
-        jButton4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/volver32.png"))); // NOI18N
-        jButton4.setText("Volver");
-        jButton4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jButton4.setMaximumSize(new java.awt.Dimension(162, 39));
-        jButton4.setMinimumSize(new java.awt.Dimension(162, 39));
-        jButton4.setName(""); // NOI18N
-        jButton4.setPreferredSize(new java.awt.Dimension(162, 39));
+        btnVolverMaterial.setBackground(new java.awt.Color(251, 234, 136));
+        btnVolverMaterial.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnVolverMaterial.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/volver32.png"))); // NOI18N
+        btnVolverMaterial.setText("Volver");
+        btnVolverMaterial.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnVolverMaterial.setMaximumSize(new java.awt.Dimension(162, 39));
+        btnVolverMaterial.setMinimumSize(new java.awt.Dimension(162, 39));
+        btnVolverMaterial.setName(""); // NOI18N
+        btnVolverMaterial.setPreferredSize(new java.awt.Dimension(162, 39));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -112,10 +108,9 @@ public class MaterialDialog extends javax.swing.JDialog {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 595, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(btnAddArticulo, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                            .addComponent(btnEliminarArticulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnVolverMaterial, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(16, 16, 16))
         );
         jPanel1Layout.setVerticalGroup(
@@ -126,13 +121,11 @@ public class MaterialDialog extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnAddArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnEliminarArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnVolverMaterial, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
@@ -152,55 +145,44 @@ public class MaterialDialog extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     /**
-     * @param args the command line arguments
+     * @param listener
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MaterialDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MaterialDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MaterialDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MaterialDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    public void setAddArticuloActionListener(ActionListener listener){
+        this.btnAddArticulo.addActionListener(listener);
+    }
+    
+    public void setEliminarArticuloActionListener(ActionListener listener){
+        this.btnEliminarArticulo.addActionListener(listener);
+    }
+    
+    public void setVolverMaterialActionListener(ActionListener listener){
+        this.btnVolverMaterial.addActionListener(listener);
+    }
+   
+    public JTable getMaterialTabla(){
+        return tablaMaterial;
+    }
+    
+    public void mostrarMaterial(ArrayList<Material> articulos) {
+        DefaultTableModel modeloTabla = (DefaultTableModel) tablaMaterial.getModel();
+       
+        modeloTabla.setRowCount(0);
 
-        /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                MaterialDialog dialog = new MaterialDialog(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
+        for (Material material : articulos) {
+            Object[] fila = {material.getIdArticulo(),material.getNombreArticulo(),material.getUnidadesDisponibles(),material.getUnidadesNoDisponibles()};
+            modeloTabla.addRow(fila);
+        }
+
+        tablaMaterial.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton btnAddArticulo;
+    private javax.swing.JButton btnEliminarArticulo;
+    private javax.swing.JButton btnVolverMaterial;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tablaMaterial;
     // End of variables declaration//GEN-END:variables
 }

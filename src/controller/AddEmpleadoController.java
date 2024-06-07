@@ -11,18 +11,18 @@ import model.database.DAO.PersonalDAO;
 import model.database.Personal;
 import view.login.LoginJFrame;
 import view.personal.PersonalDialog;
-import view.personal.AñadirEmpleadoDialog;
+import view.personal.AddEmpleadoDialog;
 
 /**
  *
  * @author neira
  */
-public class AñadirEmpleadoController {
-    private final AñadirEmpleadoDialog view;
+public class AddEmpleadoController {
+    private final AddEmpleadoDialog view;
     private final PersonalDAO personalDAO;
     private final LoginJFrame mainView;
 
-    public AñadirEmpleadoController(AñadirEmpleadoDialog view, PersonalDAO personalDAO) {
+    public AddEmpleadoController(AddEmpleadoDialog view, PersonalDAO personalDAO) {
         this.view = view;
         this.personalDAO = personalDAO;
         this.mainView = new LoginJFrame();

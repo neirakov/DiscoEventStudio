@@ -14,10 +14,9 @@ import javax.swing.table.DefaultTableModel;
 import model.database.DAO.PersonalDAO;
 import model.database.DAO.PersonalDAOMySQL;
 import model.database.Personal;
-import model.database.Usuario;
 import view.login.LoginJFrame;
 import view.personal.PersonalDialog;
-import view.personal.AñadirEmpleadoDialog;
+import view.personal.AddEmpleadoDialog;
 
 /**
  *
@@ -39,9 +38,7 @@ public class PersonalController {
     }
     
         private void cargarPersonal() {
-        // Obtener la lista de usuarios del DAO
         ArrayList<Personal> personal = personalDAO.mostrarPersonal();
-        // Mostrar los usuarios en la tabla de la vista
         view.mostrarPersonal(personal);
     }
         
@@ -64,8 +61,8 @@ public class PersonalController {
         ActionListener al = new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-              AñadirEmpleadoDialog dialog = new AñadirEmpleadoDialog(mainView, true);
-              AñadirEmpleadoController aec = new AñadirEmpleadoController(dialog,personalDAO);
+              AddEmpleadoDialog dialog = new AddEmpleadoDialog(mainView, true);
+              AddEmpleadoController aec = new AddEmpleadoController(dialog,personalDAO);
               view.dispose();
               dialog.setLocationRelativeTo(null);
               dialog.setVisible(true);
@@ -73,6 +70,7 @@ public class PersonalController {
         };
         return al;
     }    
+        
         private ActionListener eliminarEmpleadoListener(){
             ActionListener al = new ActionListener() {
                 @Override
@@ -103,8 +101,5 @@ public class PersonalController {
             }
         };
         return al;
-    }
-    
-    
-    
+    }  
 }

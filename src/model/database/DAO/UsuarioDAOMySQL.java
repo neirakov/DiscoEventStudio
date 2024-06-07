@@ -5,8 +5,6 @@
 package model.database.DAO;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import model.database.ConexionBD;
 import model.database.Usuario;
 
@@ -47,7 +45,6 @@ public class UsuarioDAOMySQL implements UsuarioDAO {
                 String contrasena = resultSet.getString("contrasena");
                 Usuario usuario = new Usuario(idUsuario, nombreUsuario, contrasena);
                 usuarios.add(usuario);
-                System.out.println(usuario);
             }
         } catch (SQLException e) {
             e.printStackTrace(); // Manejo adecuado de errores en la aplicación

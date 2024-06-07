@@ -7,6 +7,7 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import view.login.LoginJFrame;
+import view.material.MaterialDialog;
 import view.personal.PersonalDialog;
 import view.usuarios.UsuariosDialog;
 import view.ventanaPrincipal.VentanaPrincipalDialog;
@@ -25,7 +26,7 @@ public class VentanaPrincipalController {
         
         this.view.setGestionUsuariosActionListener(this.gestionUsuariosListener());
         this.view.setGestionPersonalActionListener(this.gestionPersonalListener());
-  
+        this.view.setGestionMaterialActionListener(this.gestionMaterialListener());
     }
     
     private ActionListener gestionUsuariosListener(){
@@ -53,7 +54,16 @@ public class VentanaPrincipalController {
         };
         return al;
     }
-    
-    
-    
+     
+     private ActionListener gestionMaterialListener(){
+        ActionListener al = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                MaterialDialog md = new MaterialDialog(mainFrame,true);
+                MaterialController pc = new MaterialController(md);
+                md.setVisible(true);
+            }
+        };
+        return al;
+    } 
 }

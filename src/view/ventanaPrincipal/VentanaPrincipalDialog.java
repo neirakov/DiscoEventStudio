@@ -175,13 +175,15 @@ public class VentanaPrincipalDialog extends javax.swing.JDialog {
     
     
     public void setGestionUsuariosActionListener(ActionListener listener){
-        btnUsuarios.addActionListener(listener);
-        
+        btnUsuarios.addActionListener(listener);   
     }
     
     public void setGestionPersonalActionListener(ActionListener listener){
         btnPersonal.addActionListener(listener);
-        
+    }
+    
+    public void setGestionMaterialActionListener(ActionListener listener){
+        btnMaterial.addActionListener(listener);
     }
         
 
