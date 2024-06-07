@@ -10,12 +10,12 @@ import java.awt.event.ActionListener;
  *
  * @author neira
  */
-public class AñadirEmpleadoDialog extends javax.swing.JDialog {
+public class AddEmpleadoDialog extends javax.swing.JDialog {
 
     /**
      * Creates new form añadirEmpleadoDialog
      */
-    public AñadirEmpleadoDialog(java.awt.Frame parent, boolean modal) {
+    public AddEmpleadoDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
