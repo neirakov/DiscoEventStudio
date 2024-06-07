@@ -43,7 +43,16 @@ public class PersonalDAOMySQL implements PersonalDAO {
 
     @Override
     public void eliminarEmpleado(int idEmpleado) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+         String sql = "DELETE FROM Empleados WHERE id_empleado LIKE ?;";
+        try {
+            Connection connection = ConexionBD.getConnection();
+            PreparedStatement pst = connection.prepareStatement(sql);
+            pst.setInt(1, idEmpleado);
+            pst.executeUpdate();
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }
 
     @Override

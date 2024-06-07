@@ -4,6 +4,12 @@
  */
 package view.personal;
 
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import model.database.Personal;
+
 /**
  *
  * @author neira
@@ -31,10 +37,9 @@ public class PersonalDialog extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btnAddEmpleado = new javax.swing.JButton();
+        btnEliminarEmpleado = new javax.swing.JButton();
+        btnVolver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Personal");
@@ -47,44 +52,45 @@ public class PersonalDialog extends javax.swing.JDialog {
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID Empleado", "Nombre", "Apellidos", "Dirección", "Teléfono"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane2.setViewportView(jTable2);
 
-        jButton1.setBackground(new java.awt.Color(251, 234, 136));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(17, 53, 96));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/plus-5-32.png"))); // NOI18N
-        jButton1.setText("Añadir Empleado");
-        jButton1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnAddEmpleado.setBackground(new java.awt.Color(251, 234, 136));
+        btnAddEmpleado.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnAddEmpleado.setForeground(new java.awt.Color(17, 53, 96));
+        btnAddEmpleado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/plus-5-32.png"))); // NOI18N
+        btnAddEmpleado.setText("Añadir Empleado");
+        btnAddEmpleado.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
 
-        jButton2.setBackground(new java.awt.Color(251, 234, 136));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(17, 53, 96));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/editar32.png"))); // NOI18N
-        jButton2.setText("Editar Empleado");
-        jButton2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnEliminarEmpleado.setBackground(new java.awt.Color(251, 234, 136));
+        btnEliminarEmpleado.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnEliminarEmpleado.setForeground(new java.awt.Color(17, 53, 96));
+        btnEliminarEmpleado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/x-mark-4-32.png"))); // NOI18N
+        btnEliminarEmpleado.setText("Eliminar Empleado");
+        btnEliminarEmpleado.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
 
-        jButton3.setBackground(new java.awt.Color(251, 234, 136));
-        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(17, 53, 96));
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/x-mark-4-32.png"))); // NOI18N
-        jButton3.setText("Eliminar Empleado");
-        jButton3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-
-        jButton4.setBackground(new java.awt.Color(251, 234, 136));
-        jButton4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(17, 53, 96));
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/volver32.png"))); // NOI18N
-        jButton4.setText("Volver");
-        jButton4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnVolver.setBackground(new java.awt.Color(251, 234, 136));
+        btnVolver.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnVolver.setForeground(new java.awt.Color(17, 53, 96));
+        btnVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/volver32.png"))); // NOI18N
+        btnVolver.setText("Volver");
+        btnVolver.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -100,10 +106,9 @@ public class PersonalDialog extends javax.swing.JDialog {
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 595, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(btnEliminarEmpleado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnVolver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnAddEmpleado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(16, 16, 16))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -115,13 +120,11 @@ public class PersonalDialog extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnAddEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnEliminarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
@@ -143,51 +146,43 @@ public class PersonalDialog extends javax.swing.JDialog {
 
     /**
      * @param args the command line arguments
+     * @return 
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PersonalDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PersonalDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PersonalDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PersonalDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    
+    public void setAddEmpleadoActionListener(ActionListener listener){
+        this.btnAddEmpleado.addActionListener(listener);
+    }
+    
+    public void setEliminarEmpleadoActionListener(ActionListener listener){
+        this.btnEliminarEmpleado.addActionListener(listener);
+    }
+    
+    public void setVolverPersonalActionListener(ActionListener listener){
+        this.btnVolver.addActionListener(listener);
+    }
+   
+    public JTable getPersonalTabla(){
+        return jTable2;
+    }
+    
+    public void mostrarPersonal(ArrayList<Personal> personalLista) {
+        DefaultTableModel modeloTabla = (DefaultTableModel) jTable2.getModel();
+       
+        modeloTabla.setRowCount(0);
 
-        /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                PersonalDialog dialog = new PersonalDialog(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
+        for (Personal empleado : personalLista) {
+            Object[] fila = {empleado.getIdEmpleado(),empleado.getNombre(),empleado.getApellidos(),empleado.getDireccion(),empleado.getTelefono()};
+            modeloTabla.addRow(fila);
+        }
+
+        // Hacer que la tabla sea seleccionable
+        jTable2.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton btnAddEmpleado;
+    private javax.swing.JButton btnEliminarEmpleado;
+    private javax.swing.JButton btnVolver;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;

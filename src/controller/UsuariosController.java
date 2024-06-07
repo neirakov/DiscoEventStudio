@@ -4,7 +4,6 @@
  */
 package controller;
 
-import java.sql.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -16,7 +15,7 @@ import model.database.DAO.UsuarioDAOMySQL;
 import model.database.Usuario;
 import view.login.LoginJFrame;
 import view.usuarios.UsuariosDialog;
-import view.usuarios.añadirUsuarioDialog;
+import view.usuarios.AñadirUsuarioDialog;
 
 /**
  *
@@ -32,7 +31,6 @@ public class UsuariosController {
         this.mainView = new LoginJFrame();
         this.usuarioDAO = new UsuarioDAOMySQL();
         this.view.setAddUsuarioActionListener(addUsuarioListener());
-        /*this.view.setEditarUsuarioActionListener(listener);*/
         this.view.setEliminarUsuarioActionListener(eliminarUsuarioListener());
         this.view.setVolverActionListener(volverUsuariosActionListener());
         cargarUsuarios();
@@ -50,8 +48,8 @@ public class UsuariosController {
         ActionListener al = new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-              añadirUsuarioDialog dialog = new añadirUsuarioDialog(mainView, true);
-              CrearUsuarioController cuc = new CrearUsuarioController(dialog,usuarioDAO);
+              AñadirUsuarioDialog dialog = new AñadirUsuarioDialog(mainView, true);
+              AñadirUsuarioController cuc = new AñadirUsuarioController(dialog,usuarioDAO);
               view.dispose();
               dialog.setLocationRelativeTo(null);
               dialog.setVisible(true);
@@ -60,7 +58,7 @@ public class UsuariosController {
         return al;
     }
     
-        /* TODO COMPLETAR MÉTODO PARA ELIMINAR Y VISTA CORRESPONDIENTE */
+    
     private ActionListener eliminarUsuarioListener() {
         ActionListener al = new ActionListener() {
             @Override
@@ -72,7 +70,6 @@ public class UsuariosController {
                     int confirmacion = JOptionPane.showConfirmDialog(view, "¿Está seguro de que desea eliminar el usuario seleccionado?", "Eliminar usuario", JOptionPane.YES_NO_OPTION);
                     if (confirmacion == JOptionPane.YES_OPTION) {
                         int idUsuario = (int) tabla.getValueAt(filaSeleccionada, 0);
-                        System.out.println(idUsuario);
                         usuarioDAO.eliminarUsuario(idUsuario);
                         actualizarTablaUsuarios();
                     }

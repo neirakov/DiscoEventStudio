@@ -4,10 +4,16 @@
  */
 package model.database.DAO;
 
+import java.util.ArrayList;
+import model.database.Personal;
+
 /**
  *
  * @author neira
  */
 public interface PersonalDAO {
+    ArrayList<Personal> mostrarPersonal();
+    void eliminarEmpleado(int idEmpleado);
+    void agregarEmpleado(Personal personal);
     
 }

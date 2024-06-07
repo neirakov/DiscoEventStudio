@@ -34,12 +34,13 @@ public class VentanaPrincipalDialog extends javax.swing.JDialog {
 
         jPanel1 = new javax.swing.JPanel();
         lblImagen = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btnPersonal = new javax.swing.JButton();
+        btnEventos = new javax.swing.JButton();
+        btnMaterial = new javax.swing.JButton();
+        btnClientes = new javax.swing.JButton();
         lblTitulo = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
+        btnFurgonetas = new javax.swing.JButton();
+        btnCerrarSesion = new javax.swing.JButton();
         btnUsuarios = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -49,39 +50,45 @@ public class VentanaPrincipalDialog extends javax.swing.JDialog {
 
         lblImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/DiscoEventsStudioVentanaPrincipal.png"))); // NOI18N
 
-        jButton1.setBackground(new java.awt.Color(251, 234, 136));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(17, 53, 96));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/personal-32-Blue.png"))); // NOI18N
-        jButton1.setText("Personal");
+        btnPersonal.setBackground(new java.awt.Color(251, 234, 136));
+        btnPersonal.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnPersonal.setForeground(new java.awt.Color(17, 53, 96));
+        btnPersonal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/personal-32-Blue.png"))); // NOI18N
+        btnPersonal.setText("Personal");
 
-        jButton2.setBackground(new java.awt.Color(251, 234, 136));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(17, 53, 96));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/eventos32.png"))); // NOI18N
-        jButton2.setText("Eventos");
+        btnEventos.setBackground(new java.awt.Color(251, 234, 136));
+        btnEventos.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnEventos.setForeground(new java.awt.Color(17, 53, 96));
+        btnEventos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/eventos32.png"))); // NOI18N
+        btnEventos.setText("Eventos");
 
-        jButton3.setBackground(new java.awt.Color(251, 234, 136));
-        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(17, 53, 96));
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/material32.png"))); // NOI18N
-        jButton3.setText("Material");
+        btnMaterial.setBackground(new java.awt.Color(251, 234, 136));
+        btnMaterial.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnMaterial.setForeground(new java.awt.Color(17, 53, 96));
+        btnMaterial.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/material32.png"))); // NOI18N
+        btnMaterial.setText("Material");
 
-        jButton4.setBackground(new java.awt.Color(251, 234, 136));
-        jButton4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(17, 53, 96));
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/factura32.png"))); // NOI18N
-        jButton4.setText("Facturas");
+        btnClientes.setBackground(new java.awt.Color(251, 234, 136));
+        btnClientes.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnClientes.setForeground(new java.awt.Color(17, 53, 96));
+        btnClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/clientes-32.gif"))); // NOI18N
+        btnClientes.setText("Clientes");
 
         lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        lblTitulo.setForeground(new java.awt.Color(255, 255, 255));
+        lblTitulo.setForeground(new java.awt.Color(251, 234, 136));
         lblTitulo.setText("Bienvenido:");
 
-        jButton5.setBackground(new java.awt.Color(251, 234, 136));
-        jButton5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(17, 53, 96));
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/presupuesto32.png"))); // NOI18N
-        jButton5.setText("Presupuestos");
+        btnFurgonetas.setBackground(new java.awt.Color(251, 234, 136));
+        btnFurgonetas.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnFurgonetas.setForeground(new java.awt.Color(17, 53, 96));
+        btnFurgonetas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/furgoneta-32.png"))); // NOI18N
+        btnFurgonetas.setText("Furgonetas");
+
+        btnCerrarSesion.setBackground(new java.awt.Color(251, 234, 136));
+        btnCerrarSesion.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnCerrarSesion.setForeground(new java.awt.Color(17, 53, 96));
+        btnCerrarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/cerrarSesion-32.gif"))); // NOI18N
+        btnCerrarSesion.setText("Cerrar sesión");
 
         btnUsuarios.setBackground(new java.awt.Color(251, 234, 136));
         btnUsuarios.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -95,25 +102,31 @@ public class VentanaPrincipalDialog extends javax.swing.JDialog {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(btnMaterial, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(lblTitulo)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnPersonal, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(btnFurgonetas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+                                .addComponent(btnEventos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(119, 119, 119)
-                        .addComponent(lblImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(52, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnUsuarios)
-                        .addGap(19, 19, 19))))
+                        .addComponent(btnCerrarSesion)
+                        .addContainerGap())
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(81, 81, 81)
+                        .addComponent(lblImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(121, Short.MAX_VALUE))))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addContainerGap(607, Short.MAX_VALUE)
+                    .addComponent(btnUsuarios)
+                    .addGap(9, 9, 9)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -121,22 +134,29 @@ public class VentanaPrincipalDialog extends javax.swing.JDialog {
                 .addContainerGap()
                 .addComponent(lblTitulo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 20, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(btnUsuarios)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(btnPersonal, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(btnMaterial, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)
+                        .addComponent(btnFurgonetas, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(btnClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnEventos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnCerrarSesion, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(25, 25, 25))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(99, 99, 99))))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(33, 33, 33)
+                    .addComponent(btnUsuarios)
+                    .addContainerGap(413, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -158,15 +178,21 @@ public class VentanaPrincipalDialog extends javax.swing.JDialog {
         btnUsuarios.addActionListener(listener);
         
     }
+    
+    public void setGestionPersonalActionListener(ActionListener listener){
+        btnPersonal.addActionListener(listener);
+        
+    }
         
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCerrarSesion;
+    private javax.swing.JButton btnClientes;
+    private javax.swing.JButton btnEventos;
+    private javax.swing.JButton btnFurgonetas;
+    private javax.swing.JButton btnMaterial;
+    private javax.swing.JButton btnPersonal;
     private javax.swing.JButton btnUsuarios;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblImagen;
     private javax.swing.JLabel lblTitulo;
