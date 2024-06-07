@@ -5,6 +5,8 @@
 package model.database.DAO;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.database.ConexionBD;
 import model.database.Usuario;
 
@@ -52,4 +54,34 @@ public class UsuarioDAOMySQL implements UsuarioDAO {
         }
         return usuarios;
     }
-}
+
+    @Override
+    public void eliminarUsuario(int idUsuario) {
+        String sql = "DELETE FROM Usuarios WHERE id_usuario LIKE ?;";
+        try {
+            Connection connection = ConexionBD.getConnection();
+            //PreStatement stm = connection.createStatement();
+            PreparedStatement pst = connection.prepareStatement(sql);
+            pst.setInt(1, idUsuario);
+            pst.executeUpdate();
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    @Override
+    public void agregarUsuario(Usuario usuario) {
+        String sql = "INSERT INTO Usuarios (usuario, contrasena) VALUES (?, ?)";
+        try (Connection connection = ConexionBD.getConnection();
+             PreparedStatement pst = connection.prepareStatement(sql)) {
+            
+            pst.setString(1, usuario.getUsuario());
+            pst.setString(2, usuario.getContrasena());
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+    
+ }

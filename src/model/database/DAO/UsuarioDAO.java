@@ -14,4 +14,6 @@ import model.database.Usuario;
 public interface UsuarioDAO {
     boolean verificarCredenciales(String nombreUsuario, String contrasena);
     ArrayList<Usuario> mostrarUsuarios();
+    void eliminarUsuario(int idUsuario);
+    void agregarUsuario(Usuario usuario);
 }

@@ -34,7 +34,7 @@ public class UsuariosController {
         this.view.setAddUsuarioActionListener(addUsuarioListener());
         /*this.view.setEditarUsuarioActionListener(listener);*/
         this.view.setEliminarUsuarioActionListener(eliminarUsuarioListener());
-        /*this.view.setVolverActionListener(listener);*/
+        this.view.setVolverActionListener(volverUsuariosActionListener());
         cargarUsuarios();
         
     }
@@ -96,4 +96,14 @@ public class UsuariosController {
             });
         }   
     }  
+    
+    private ActionListener volverUsuariosActionListener(){
+        ActionListener al = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                view.dispose();
+            }
+        };
+        return al;
+    }
 }
