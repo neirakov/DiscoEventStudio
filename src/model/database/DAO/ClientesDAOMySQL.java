@@ -10,42 +10,43 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import model.database.Cliente;
 import model.database.ConexionBD;
-import model.database.Material;
 
 /**
  *
  * @author neira
  */
-public class MaterialDAOMySQL implements MaterialDAO {
+public class ClientesDAOMySQL implements ClientesDAO {
 
     @Override
-    public ArrayList<Material> mostrarCliente() {
-        ArrayList<Material> material = new ArrayList<>();
-        String query = "SELECT * FROM Material;";
+    public ArrayList<Cliente> mostrarClientes() {
+        ArrayList<Cliente> clientes = new ArrayList<>();
+        String query = "SELECT * FROM Clientes;";
         try (Connection connection = ConexionBD.getConnection(); Statement stm = connection.createStatement();) {
             ResultSet resultSet = stm.executeQuery(query);
             while (resultSet.next()) {
-                int idArticulo = resultSet.getInt("id_articulo");
-                String nombreArticulo = resultSet.getString("nombre");
-                String unidadesDisponibles = resultSet.getString("unidades_disponibles");
-                String unidadesNoDisponibles = resultSet.getString("unidades_no_disponibles");
-                Material articulo = new Material(idArticulo, nombreArticulo, unidadesDisponibles,unidadesNoDisponibles);
-                material.add(articulo);
+                int idCliente = resultSet.getInt("id_cliente");
+                String CIF = resultSet.getString("CIF");
+                String nombreCliente = resultSet.getString("nombre");
+                String direccion = resultSet.getString("direccion");
+                String telefono = resultSet.getString("telefono");
+                Cliente cliente = new Cliente(idCliente, CIF, nombreCliente,direccion,telefono);
+                clientes.add(cliente);
             }
         } catch (SQLException e) {
             e.printStackTrace(); 
         }
-        return material;
+        return clientes;
  }
 
     @Override
-    public void eliminarArticulo(int idArticulo) {
-         String sql = "DELETE FROM Material WHERE id_articulo LIKE ?;";
+    public void eliminarCliente(int idCliente) {
+         String sql = "DELETE FROM Clientes WHERE id_cliente LIKE ?;";
         try {
             Connection connection = ConexionBD.getConnection();
             PreparedStatement pst = connection.prepareStatement(sql);
-            pst.setInt(1, idArticulo);
+            pst.setInt(1, idCliente);
             pst.executeUpdate();
             
         } catch (SQLException ex) {
@@ -54,14 +55,15 @@ public class MaterialDAOMySQL implements MaterialDAO {
     }
 
     @Override
-    public void agregarArticulo(Material articulo) {
-        String sql = "INSERT INTO Material (nombre, unidades_disponibles, unidades_no_disponibles) VALUES (?, ?, ?)";
+    public void agregarCliente(Cliente cliente) {
+        String sql = "INSERT INTO Clientes (CIF, nombre, direccion, telefono) VALUES (?, ?, ?,?)";
         try (Connection connection = ConexionBD.getConnection();
              PreparedStatement pst = connection.prepareStatement(sql)) {
             
-            pst.setString(1, articulo.getNombreArticulo());
-            pst.setString(2, articulo.getUnidadesDisponibles());
-            pst.setString(3, articulo.getUnidadesNoDisponibles());
+            pst.setString(1, cliente.getCIF());
+            pst.setString(2, cliente.getNombre());
+            pst.setString(3, cliente.getDireccion());
+            pst.setString(4, cliente.getTelefono());
             pst.executeUpdate();
             
         } catch (SQLException ex) {

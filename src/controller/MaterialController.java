@@ -38,12 +38,12 @@ public class MaterialController {
     }
     
     private void cargarMaterial() {
-        ArrayList<Material> articulo = materialDAO.mostrarMaterial();
+        ArrayList<Material> articulo = materialDAO.mostrarCliente();
         view.mostrarMaterial(articulo);
     }
     
     public void actualizarTablaMaterial(){
-        ArrayList<Material> material = materialDAO.mostrarMaterial();
+        ArrayList<Material> material = materialDAO.mostrarCliente();
         DefaultTableModel modeloTablaPersonal = (DefaultTableModel) view.getMaterialTabla().getModel();
         modeloTablaPersonal.setRowCount(0);
         for(Material articulo : material){

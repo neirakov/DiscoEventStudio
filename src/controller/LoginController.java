@@ -6,9 +6,7 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.Icon;
 import javax.swing.JOptionPane;
-import javax.swing.UIManager;
 import model.database.DAO.UsuarioDAOMySQL;
 import view.login.LoginJFrame;
 import view.ventanaPrincipal.VentanaPrincipalDialog;

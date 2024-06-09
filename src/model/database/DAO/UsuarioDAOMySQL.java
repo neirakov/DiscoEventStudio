@@ -80,5 +80,4 @@ public class UsuarioDAOMySQL implements UsuarioDAO {
             ex.printStackTrace();
         }
     }
-    
  }

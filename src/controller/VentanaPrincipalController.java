@@ -6,6 +6,8 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import view.clientes.ClientesDialog;
+import view.furgonetas.FurgonetasDialog;
 import view.login.LoginJFrame;
 import view.material.MaterialDialog;
 import view.personal.PersonalDialog;
@@ -27,6 +29,8 @@ public class VentanaPrincipalController {
         this.view.setGestionUsuariosActionListener(this.gestionUsuariosListener());
         this.view.setGestionPersonalActionListener(this.gestionPersonalListener());
         this.view.setGestionMaterialActionListener(this.gestionMaterialListener());
+        this.view.setGestionClientesActionListener(this.gestionClientesListener());
+        this.view.setGestionFurgonetasActionListener(this.gestionFurgonetasListener());
     }
     
     private ActionListener gestionUsuariosListener(){
@@ -36,6 +40,7 @@ public class VentanaPrincipalController {
                 UsuariosDialog ud = new UsuariosDialog(mainFrame,true);
                 UsuariosController usc = new UsuariosController(ud);
                 ud.setVisible(true);
+                ud.setLocationRelativeTo(null);
                 
             }
         };
@@ -62,6 +67,30 @@ public class VentanaPrincipalController {
                 MaterialDialog md = new MaterialDialog(mainFrame,true);
                 MaterialController pc = new MaterialController(md);
                 md.setVisible(true);
+            }
+        };
+        return al;
+    } 
+     
+     private ActionListener gestionClientesListener(){
+        ActionListener al = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ClientesDialog cd = new ClientesDialog(mainFrame,true);
+                ClientesController cc = new ClientesController(cd);
+                cd.setVisible(true);
+            }
+        };
+        return al;
+    } 
+     
+     private ActionListener gestionFurgonetasListener(){
+        ActionListener al = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                FurgonetasDialog fd = new FurgonetasDialog(mainFrame,true);
+                FurgonetasController fc = new FurgonetasController(fd);
+                fd.setVisible(true);
             }
         };
         return al;

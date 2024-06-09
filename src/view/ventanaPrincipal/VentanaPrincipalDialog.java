@@ -5,8 +5,6 @@
 package view.ventanaPrincipal;
 
 import java.awt.event.ActionListener;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
 
 /**
  *
@@ -184,6 +182,14 @@ public class VentanaPrincipalDialog extends javax.swing.JDialog {
     
     public void setGestionMaterialActionListener(ActionListener listener){
         btnMaterial.addActionListener(listener);
+    }
+    
+    public void setGestionClientesActionListener(ActionListener listener){
+        btnClientes.addActionListener(listener);
+    }
+    
+    public void setGestionFurgonetasActionListener(ActionListener listener){
+        btnFurgonetas.addActionListener(listener);
     }
         
 

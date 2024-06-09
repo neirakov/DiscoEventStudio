@@ -58,7 +58,6 @@ public class UsuariosController {
         return al;
     }
     
-    
     private ActionListener eliminarUsuarioListener() {
         ActionListener al = new ActionListener() {
             @Override

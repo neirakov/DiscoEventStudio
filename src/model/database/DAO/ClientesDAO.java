@@ -5,15 +5,14 @@
 package model.database.DAO;
 
 import java.util.ArrayList;
-import model.database.Material;
-import model.database.Personal;
+import model.database.Cliente;
 
 /**
  *
  * @author neira
  */
-public interface MaterialDAO {
-    ArrayList<Material> mostrarCliente();
-    void eliminarArticulo(int idArticulo);
-    void agregarArticulo(Material articulo);
+public interface ClientesDAO {
+    ArrayList<Cliente> mostrarClientes();
+    void eliminarCliente(int idCliente);
+    void agregarCliente(Cliente cliente);
 }
