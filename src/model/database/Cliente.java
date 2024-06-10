@@ -15,7 +15,7 @@ public class Cliente {
     private String direccion;
     private String telefono;
 
-    public Cliente(int idCliente, String nombre, String CIF, String direccion, String telefono) {
+    public Cliente(int idCliente, String CIF, String nombre, String direccion, String telefono) {
         this.idCliente = idCliente;
         this.nombre = nombre;
         this.CIF = CIF;

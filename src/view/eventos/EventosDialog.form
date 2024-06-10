@@ -24,10 +24,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-          </Group>
+          <Component id="jPanel1" alignment="1" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -55,7 +52,7 @@
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
-                          <Component id="jScrollPane2" pref="595" max="32767" attributes="0"/>
+                          <Component id="jScrollPane2" pref="1011" max="32767" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="btnEliminarEmpleado" max="32767" attributes="0"/>
@@ -90,7 +87,7 @@
                           <Component id="btnVolver" min="-2" pref="37" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="19" max="32767" attributes="0"/>
+                  <EmptySpace pref="45" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -111,15 +108,19 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTable" name="jTable2">
+            <Component class="javax.swing.JTable" name="tablaEventos">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="5" rowCount="4">
-                    <Column editable="false" title="ID Empleado" type="java.lang.Object"/>
-                    <Column editable="false" title="Nombre" type="java.lang.Object"/>
-                    <Column editable="false" title="Apellidos" type="java.lang.Object"/>
-                    <Column editable="false" title="Direcci&#xf3;n" type="java.lang.Object"/>
-                    <Column editable="false" title="Tel&#xe9;fono" type="java.lang.Object"/>
+                  <Table columnCount="9" rowCount="4">
+                    <Column editable="false" title="ID Evento" type="java.lang.Object"/>
+                    <Column editable="false" title="Cliente" type="java.lang.Object"/>
+                    <Column editable="false" title="Empleados" type="java.lang.Object"/>
+                    <Column editable="false" title="Tipo Pack" type="java.lang.Object"/>
+                    <Column editable="false" title="Furgoneta" type="java.lang.Object"/>
+                    <Column editable="false" title="Fotomaton" type="java.lang.Object"/>
+                    <Column editable="false" title="Karaoke" type="java.lang.Object"/>
+                    <Column editable="false" title="Proyecci&#xf3;n" type="java.lang.Object"/>
+                    <Column editable="false" title="Importe Total + IVA" type="java.lang.Object"/>
                   </Table>
                 </Property>
               </Properties>

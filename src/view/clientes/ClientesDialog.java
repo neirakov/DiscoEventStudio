@@ -171,7 +171,7 @@ public class ClientesDialog extends javax.swing.JDialog {
         modeloTabla.setRowCount(0);
 
         for (Cliente cliente : clientes) {
-            Object[] fila = {cliente.getIdCliente(),cliente.getCIF(),cliente.getNombre(),cliente.getDireccion(),cliente.getTelefono()};
+            Object[] fila = {cliente.getIdCliente(),cliente.getNombre(),cliente.getCIF(),cliente.getDireccion(),cliente.getTelefono()};
             modeloTabla.addRow(fila);
         }
 

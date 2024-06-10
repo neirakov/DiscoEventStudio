@@ -191,6 +191,10 @@ public class VentanaPrincipalDialog extends javax.swing.JDialog {
     public void setGestionFurgonetasActionListener(ActionListener listener){
         btnFurgonetas.addActionListener(listener);
     }
+    
+    public void setGestionEventosActionListener(ActionListener listener){
+        btnEventos.addActionListener(listener);
+    }
         
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -7,6 +7,7 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import view.clientes.ClientesDialog;
+import view.eventos.EventosDialog;
 import view.furgonetas.FurgonetasDialog;
 import view.login.LoginJFrame;
 import view.material.MaterialDialog;
@@ -31,6 +32,7 @@ public class VentanaPrincipalController {
         this.view.setGestionMaterialActionListener(this.gestionMaterialListener());
         this.view.setGestionClientesActionListener(this.gestionClientesListener());
         this.view.setGestionFurgonetasActionListener(this.gestionFurgonetasListener());
+        this.view.setGestionEventosActionListener(this.gestionEventosListener());
     }
     
     private ActionListener gestionUsuariosListener(){
@@ -94,5 +96,19 @@ public class VentanaPrincipalController {
             }
         };
         return al;
+    }
+     
+     private ActionListener gestionEventosListener(){
+        ActionListener al = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                EventosDialog ed = new EventosDialog(mainFrame,true);
+                EventosController fc = new EventosController(ed);
+                ed.setVisible(true);
+            }
+        };
+        return al;
     } 
+     
+     
 }

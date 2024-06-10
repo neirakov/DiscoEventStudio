@@ -4,12 +4,11 @@
  */
 package view.eventos;
 
-import view.personal.*;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import model.database.Personal;
+import model.database.Evento;
 
 /**
  *
@@ -37,7 +36,7 @@ public class EventosDialog extends javax.swing.JDialog {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        tablaEventos = new javax.swing.JTable();
         btnAddEmpleado = new javax.swing.JButton();
         btnEliminarEmpleado = new javax.swing.JButton();
         btnVolver = new javax.swing.JButton();
@@ -53,26 +52,26 @@ public class EventosDialog extends javax.swing.JDialog {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Gestión de eventos");
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tablaEventos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID Empleado", "Nombre", "Apellidos", "Dirección", "Teléfono"
+                "ID Evento", "Cliente", "Empleados", "Tipo Pack", "Furgoneta", "Fotomaton", "Karaoke", "Proyección", "Importe Total + IVA"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(tablaEventos);
 
         btnAddEmpleado.setBackground(new java.awt.Color(251, 234, 136));
         btnAddEmpleado.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -120,7 +119,7 @@ public class EventosDialog extends javax.swing.JDialog {
                         .addComponent(jLabel1)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 595, Short.MAX_VALUE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1011, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnEliminarEmpleado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -148,16 +147,14 @@ public class EventosDialog extends javax.swing.JDialog {
                         .addComponent(btnGenerarFactura, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -172,34 +169,33 @@ public class EventosDialog extends javax.swing.JDialog {
      * @return 
      */
     
-    public void setAddEmpleadoActionListener(ActionListener listener){
+    public void setAddEventoActionListener(ActionListener listener){
         this.btnAddEmpleado.addActionListener(listener);
     }
     
-    public void setEliminarEmpleadoActionListener(ActionListener listener){
+    public void setEliminarEventoActionListener(ActionListener listener){
         this.btnEliminarEmpleado.addActionListener(listener);
     }
     
-    public void setVolverPersonalActionListener(ActionListener listener){
+    public void setVolverEventosActionListener(ActionListener listener){
         this.btnVolver.addActionListener(listener);
     }
    
-    public JTable getPersonalTabla(){
-        return jTable2;
+    public JTable getEventosTabla(){
+        return tablaEventos;
     }
     
-    public void mostrarPersonal(ArrayList<Personal> personalLista) {
-        DefaultTableModel modeloTabla = (DefaultTableModel) jTable2.getModel();
+    public void mostrarEventos(ArrayList<Evento> eventos) {
+        DefaultTableModel modeloTabla = (DefaultTableModel) tablaEventos.getModel();
        
         modeloTabla.setRowCount(0);
 
-        for (Personal empleado : personalLista) {
-            Object[] fila = {empleado.getIdEmpleado(),empleado.getNombre(),empleado.getApellidos(),empleado.getDireccion(),empleado.getTelefono()};
+        for (Evento evento : eventos) {
+            Object[] fila = {evento.getIdEvento(),evento.getCliente(),evento.getTipoPack(),evento.getEmpleados(),evento.getFurgoneta(),evento.getFotomaton(),evento.getKaraoke(),evento.getProyeccion(),evento.getImporteTotalConIVA()};
             modeloTabla.addRow(fila);
         }
-
-        // Hacer que la tabla sea seleccionable
-        jTable2.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        
+        tablaEventos.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -211,6 +207,6 @@ public class EventosDialog extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable2;
+    private javax.swing.JTable tablaEventos;
     // End of variables declaration//GEN-END:variables
 }

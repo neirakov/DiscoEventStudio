@@ -22,7 +22,7 @@ public class Personal {
         this.direccion = direccion;
         this.telefono = telefono;
     }
-
+    
     public int getIdEmpleado() {
         return idEmpleado;
     }
