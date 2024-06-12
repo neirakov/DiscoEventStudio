@@ -14,6 +14,6 @@ import model.database.Evento;
 public interface EventosDAO {
     ArrayList<Evento> mostrarEventos();
     void eliminarEvento(int idEvento);
-    void agregarEvento(Evento evento, int idEmpleado, int idEmpleado2);
+    boolean agregarEvento(Evento evento, int idEmpleado, int idEmpleado2);
     void agregarEmpleadoEvento(int idEvento, int idEmpleado);
 }

@@ -66,7 +66,8 @@ public class EventosDAOMySQL implements EventosDAO {
         }
 
     @Override
-    public void agregarEvento(Evento evento, int idEmpleado, int idEmpleado2) {
+    public boolean agregarEvento(Evento evento, int idEmpleado, int idEmpleado2) {
+        boolean agregado = false;
         String sql = "INSERT INTO Eventos (id_cliente, id_furgoneta, tipo_evento, id_tipo_boda, id_tipo_fiesta, fecha_evento, fotomaton, karaoke, proyeccion, horas_extra_disco, horas_extra_fotomaton) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         
             try (Connection connection = ConexionBD.getConnection();
@@ -126,11 +127,12 @@ public class EventosDAOMySQL implements EventosDAO {
                     }
                 }
                 
-                
+                agregado = true;
              
         } catch (SQLException ex) {
             Logger.getLogger(EventosDAOMySQL.class.getName()).log(Level.SEVERE, null, ex);
         }
+            return agregado;
     }
 
     @Override
