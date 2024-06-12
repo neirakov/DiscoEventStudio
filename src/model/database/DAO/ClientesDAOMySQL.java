@@ -70,5 +70,20 @@ public class ClientesDAOMySQL implements ClientesDAO {
             ex.printStackTrace();
         }
     }
-    
+
+    @Override
+    public int obtenerIdClientePorNombre(String nombre) {
+        String sql ="Select id_cliente FROM Clientes where nombre = ?;";
+        try (Connection connection = ConexionBD.getConnection();
+             PreparedStatement pst = connection.prepareStatement(sql)){
+                        pst.setString(1, nombre);
+            ResultSet resultSet = pst.executeQuery();
+            if (resultSet.next()) {
+                return resultSet.getInt("id_cliente");
+            }
+        } catch (SQLException e){
+            
+        }
+        return 0;
+     }       
 }

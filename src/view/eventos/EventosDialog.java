@@ -40,8 +40,6 @@ public class EventosDialog extends javax.swing.JDialog {
         btnAddEmpleado = new javax.swing.JButton();
         btnEliminarEmpleado = new javax.swing.JButton();
         btnVolver = new javax.swing.JButton();
-        btnGenerarPresupuesto = new javax.swing.JButton();
-        btnGenerarFactura = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Personal");
@@ -54,17 +52,17 @@ public class EventosDialog extends javax.swing.JDialog {
 
         tablaEventos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID Evento", "Cliente", "Empleados", "Tipo Pack", "Furgoneta", "Fotomaton", "Karaoke", "Proyección", "Importe Total + IVA"
+                "ID Evento", "Cliente", "Empleados", "Tipo Pack", "Furgoneta", "Fotomaton", "Karaoke", "Proyección", "Fecha", "Importe con IVA "
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -94,20 +92,6 @@ public class EventosDialog extends javax.swing.JDialog {
         btnVolver.setText("Volver");
         btnVolver.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
 
-        btnGenerarPresupuesto.setBackground(new java.awt.Color(251, 234, 136));
-        btnGenerarPresupuesto.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnGenerarPresupuesto.setForeground(new java.awt.Color(17, 53, 96));
-        btnGenerarPresupuesto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/volver32.png"))); // NOI18N
-        btnGenerarPresupuesto.setText("Generar Presupuesto");
-        btnGenerarPresupuesto.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-
-        btnGenerarFactura.setBackground(new java.awt.Color(251, 234, 136));
-        btnGenerarFactura.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnGenerarFactura.setForeground(new java.awt.Color(17, 53, 96));
-        btnGenerarFactura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/volver32.png"))); // NOI18N
-        btnGenerarFactura.setText("Generar Factura");
-        btnGenerarFactura.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -122,11 +106,9 @@ public class EventosDialog extends javax.swing.JDialog {
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1011, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnEliminarEmpleado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnEliminarEmpleado, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
                             .addComponent(btnVolver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnAddEmpleado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnGenerarPresupuesto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnGenerarFactura, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(btnAddEmpleado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(16, 16, 16))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -141,10 +123,6 @@ public class EventosDialog extends javax.swing.JDialog {
                         .addComponent(btnAddEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnEliminarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnGenerarPresupuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnGenerarFactura, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(45, Short.MAX_VALUE))
@@ -191,7 +169,7 @@ public class EventosDialog extends javax.swing.JDialog {
         modeloTabla.setRowCount(0);
 
         for (Evento evento : eventos) {
-            Object[] fila = {evento.getIdEvento(),evento.getCliente(),evento.getTipoPack(),evento.getEmpleados(),evento.getFurgoneta(),evento.getFotomaton(),evento.getKaraoke(),evento.getProyeccion(),evento.getImporteTotalConIVA()};
+            Object[] fila = {evento.getIdEvento(),evento.getCliente(),evento.getTipoPack(),evento.getEmpleados(),evento.getFurgoneta(),evento.getFotomaton(),evento.getKaraoke(),evento.getProyeccion(),evento.getFechaEvento(),evento.getImporteTotalConIVA()};
             modeloTabla.addRow(fila);
         }
         
@@ -201,8 +179,6 @@ public class EventosDialog extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddEmpleado;
     private javax.swing.JButton btnEliminarEmpleado;
-    private javax.swing.JButton btnGenerarFactura;
-    private javax.swing.JButton btnGenerarPresupuesto;
     private javax.swing.JButton btnVolver;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;

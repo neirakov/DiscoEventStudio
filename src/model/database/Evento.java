@@ -30,8 +30,9 @@ public class Evento {
     private String importeTotal;
     private String importeIVA;
     private String importeTotalConIVA;
+    private String fechaEvento;
 
-    public Evento(int idEvento, String cliente, String empleados, String tipoEvento,String tipoPack ,String descripcionPack, String importePack, String furgoneta, String fotomaton, String karaoke,String proyeccion, String importeBaseFotomaton, String importeBaseKaraoke, String importeBaseProyeccion, String horasExtraDisco, String horasExtraFotomaton, String importeHorasExtraDisco, String importeHorasExtraFotomaton, String importeTotal, String importeIVA, String importeTotalConIVA) {
+    public Evento(int idEvento, String cliente, String empleados, String tipoEvento,String tipoPack ,String descripcionPack, String importePack, String furgoneta, String fotomaton, String karaoke,String proyeccion, String importeBaseFotomaton, String importeBaseKaraoke, String importeBaseProyeccion, String horasExtraDisco, String horasExtraFotomaton, String importeHorasExtraDisco, String importeHorasExtraFotomaton, String importeTotal, String importeIVA, String importeTotalConIVA, String fechaEvento) {
         this.idEvento = idEvento;
         this.cliente = cliente;
         this.empleados = empleados;
@@ -53,9 +54,10 @@ public class Evento {
         this.importeTotal = importeTotal;
         this.importeIVA = importeIVA;
         this.importeTotalConIVA = importeTotalConIVA;
+        this.fechaEvento = fechaEvento;
     }
     
-        public Evento(int idEvento, String cliente, String tipoPack, String empleados,String furgoneta,String fotomaton,String karaoke,String proyeccion,String importeTotalConIVA) {
+        public Evento(int idEvento, String cliente, String tipoPack, String empleados,String furgoneta,String fotomaton,String karaoke,String proyeccion,String fechaEvento,String importeTotalConIVA) {
         this.idEvento = idEvento;
         this.cliente = cliente;
         this.tipoPack = tipoPack;
@@ -64,9 +66,32 @@ public class Evento {
         this.fotomaton = fotomaton;
         this.karaoke = karaoke;
         this.proyeccion = proyeccion;
+        this.fechaEvento = fechaEvento;
         this.importeTotalConIVA = importeTotalConIVA;
     }
 
+    public Evento(String cliente,String tipoEvento,String tipoPack, String fotomaton,String horasExtraFotomaton,String empleados,String furgoneta, String karaoke,String proyeccion, String fechaEvento, String horasExtraDisco) {
+        this.cliente = cliente;
+        this.empleados = empleados;
+        this.tipoEvento = tipoEvento;
+        this.tipoPack = tipoPack;
+        this.furgoneta = furgoneta;
+        this.fotomaton = fotomaton;
+        this.karaoke = karaoke;
+        this.proyeccion = proyeccion;
+        this.horasExtraDisco = horasExtraDisco;
+        this.horasExtraFotomaton = horasExtraFotomaton;
+        this.fechaEvento = fechaEvento;
+    }
+       
+    public String getFechaEvento() {
+        return fechaEvento;
+    }
+
+    public void setFechaEvento(String fechaEvento) {
+        this.fechaEvento = fechaEvento;
+    }
+        
     public String getProyeccion() {
         return proyeccion;
     }

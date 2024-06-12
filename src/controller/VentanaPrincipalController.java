@@ -4,6 +4,8 @@
  */
 package controller;
 
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import view.clientes.ClientesDialog;
@@ -26,6 +28,7 @@ public class VentanaPrincipalController {
     public VentanaPrincipalController(VentanaPrincipalDialog view,LoginJFrame mainFrame) {
         this.view = view;
         this.mainFrame= mainFrame;
+
         
         this.view.setGestionUsuariosActionListener(this.gestionUsuariosListener());
         this.view.setGestionPersonalActionListener(this.gestionPersonalListener());
@@ -109,6 +112,8 @@ public class VentanaPrincipalController {
         };
         return al;
     } 
+     
+
      
      
 }

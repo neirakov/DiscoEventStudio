@@ -15,4 +15,5 @@ public interface ClientesDAO {
     ArrayList<Cliente> mostrarClientes();
     void eliminarCliente(int idCliente);
     void agregarCliente(Cliente cliente);
+    int obtenerIdClientePorNombre(String nombre);
 }

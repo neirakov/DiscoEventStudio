@@ -15,5 +15,6 @@ public interface PersonalDAO {
     ArrayList<Personal> mostrarPersonal();
     void eliminarEmpleado(int idEmpleado);
     void agregarEmpleado(Personal personal);
+    int obtenerIDempleadoPorNombre(String nombre);
     
 }

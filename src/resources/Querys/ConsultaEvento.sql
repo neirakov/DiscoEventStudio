@@ -4,6 +4,7 @@ SELECT
     IF(e.tipo_evento = 'boda', tb.nombre, tf.nombre) AS tipo_pack,
     GROUP_CONCAT(CONCAT(emp.nombre, ' ', emp.apellidos) SEPARATOR ', ') AS empleados,
     f.modelo AS furgoneta,
+    e.fecha_evento, -- Incluimos el campo fecha_evento
     CASE 
         WHEN e.fotomaton = TRUE THEN 'SI'
         ELSE 'NO'
@@ -44,4 +45,5 @@ LEFT JOIN
 LEFT JOIN 
     Empleados emp ON ee.id_empleado = emp.id_empleado
 GROUP BY 
-    e.id_evento, c.nombre, tipo_pack, f.modelo, e.fotomaton, e.karaoke, e.proyeccion, e.horas_extra_disco, e.horas_extra_fotomaton;
+    e.id_evento, c.nombre, tipo_pack, f.modelo, e.fecha_evento, e.fotomaton, e.karaoke, e.proyeccion, e.horas_extra_disco, e.horas_extra_fotomaton;
+

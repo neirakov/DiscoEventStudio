@@ -5,7 +5,9 @@
 package view.eventos;
 
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.JComboBox;
+import javax.swing.JSpinner;
 
 /**
  *
@@ -31,7 +33,7 @@ public class AddEventoDialog extends javax.swing.JDialog {
     private void initComponents() {
 
         tipoEventoButtonGroup = new javax.swing.ButtonGroup();
-        fotomatonButtonGroup = new javax.swing.ButtonGroup();
+        packFiestaButtonGroup = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -43,9 +45,7 @@ public class AddEventoDialog extends javax.swing.JDialog {
         tipoEventoBodaRadioButton = new javax.swing.JRadioButton();
         tipoEventoFiestaRadioButton = new javax.swing.JRadioButton();
         packsBodaComboBox = new javax.swing.JComboBox<>();
-        packsFiestaComboBox = new javax.swing.JComboBox<>();
         siFotomatonRadioButton = new javax.swing.JRadioButton();
-        noFotomatonRadioButton = new javax.swing.JRadioButton();
         horasExtraFotomatonSpinner = new javax.swing.JSpinner();
         horasExtraDiscoSpinner = new javax.swing.JSpinner();
         btnCrearEvento = new javax.swing.JButton();
@@ -56,6 +56,10 @@ public class AddEventoDialog extends javax.swing.JDialog {
         empleado2ComboBox = new javax.swing.JComboBox<>();
         jLabel10 = new javax.swing.JLabel();
         furgonetaComboBox = new javax.swing.JComboBox<>();
+        jLabel11 = new javax.swing.JLabel();
+        karaokeRadioButton = new javax.swing.JRadioButton();
+        proyeccionRadioButton1 = new javax.swing.JRadioButton();
+        fechaEventoTextField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -89,10 +93,12 @@ public class AddEventoDialog extends javax.swing.JDialog {
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Packs Fiesta:");
 
+        tipoEventoButtonGroup.add(tipoEventoBodaRadioButton);
         tipoEventoBodaRadioButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         tipoEventoBodaRadioButton.setForeground(new java.awt.Color(255, 255, 255));
         tipoEventoBodaRadioButton.setText("Boda");
 
+        tipoEventoButtonGroup.add(tipoEventoFiestaRadioButton);
         tipoEventoFiestaRadioButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         tipoEventoFiestaRadioButton.setForeground(new java.awt.Color(255, 255, 255));
         tipoEventoFiestaRadioButton.setText("Fiesta");
@@ -102,21 +108,15 @@ public class AddEventoDialog extends javax.swing.JDialog {
             }
         });
 
-        packsBodaComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Base", "Pro", "Diamante", "Platino" }));
-
-        packsFiestaComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Disco Móvil", "Karaoke", "Proyección" }));
+        packsBodaComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione...", "Base", "Pro", "Diamante", "Platino" }));
 
         siFotomatonRadioButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         siFotomatonRadioButton.setForeground(new java.awt.Color(255, 255, 255));
         siFotomatonRadioButton.setText("Si");
 
-        noFotomatonRadioButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        noFotomatonRadioButton.setForeground(new java.awt.Color(255, 255, 255));
-        noFotomatonRadioButton.setText("No");
+        horasExtraFotomatonSpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, 5, 1));
 
-        horasExtraFotomatonSpinner.setModel(new javax.swing.SpinnerNumberModel(0, null, 5, 1));
-
-        horasExtraDiscoSpinner.setModel(new javax.swing.SpinnerNumberModel(0, null, 5, 1));
+        horasExtraDiscoSpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, 5, 1));
 
         btnCrearEvento.setText("Crear");
 
@@ -124,6 +124,7 @@ public class AddEventoDialog extends javax.swing.JDialog {
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Cliente:");
 
+        clientesComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione..." }));
         clientesComboBox.setToolTipText("");
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -138,7 +139,22 @@ public class AddEventoDialog extends javax.swing.JDialog {
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Vehículo:");
 
+        furgonetaComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione..." }));
         furgonetaComboBox.setToolTipText("");
+
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("Fecha Evento:");
+
+        karaokeRadioButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        karaokeRadioButton.setForeground(new java.awt.Color(255, 255, 255));
+        karaokeRadioButton.setText("Karaoke");
+
+        proyeccionRadioButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        proyeccionRadioButton1.setForeground(new java.awt.Color(255, 255, 255));
+        proyeccionRadioButton1.setText("Proyección");
+
+        fechaEventoTextField.setToolTipText("DD/MM/AAAA");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -169,7 +185,6 @@ public class AddEventoDialog extends javax.swing.JDialog {
                                                     .addComponent(siFotomatonRadioButton)
                                                     .addGap(44, 44, 44)))
                                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(noFotomatonRadioButton)
                                                 .addComponent(tipoEventoFiestaRadioButton)
                                                 .addComponent(horasExtraFotomatonSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                     .addGap(65, 65, 65))
@@ -188,25 +203,32 @@ public class AddEventoDialog extends javax.swing.JDialog {
                                     .addComponent(jLabel9)
                                     .addComponent(jLabel10))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(furgonetaComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(empleado1ComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, 127, Short.MAX_VALUE))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(empleado1ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(empleado2ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(packsFiestaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGap(30, 30, 30)
+                                        .addComponent(karaokeRadioButton)))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(proyeccionRadioButton1)
+                                    .addComponent(empleado2ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel6)
                                 .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(furgonetaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(horasExtraDiscoSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(337, 337, 337)
-                        .addComponent(btnCrearEvento, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(horasExtraDiscoSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel11)
+                                .addGap(18, 18, 18)
+                                .addComponent(fechaEventoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(319, 319, 319)
-                        .addComponent(jLabel1)))
-                .addContainerGap(20, Short.MAX_VALUE))
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(337, 337, 337)
+                        .addComponent(btnCrearEvento, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -232,21 +254,24 @@ public class AddEventoDialog extends javax.swing.JDialog {
                     .addComponent(jLabel3)
                     .addComponent(packsBodaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7)
-                    .addComponent(packsFiestaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
+                    .addComponent(karaokeRadioButton)
+                    .addComponent(proyeccionRadioButton1))
+                .addGap(34, 34, 34)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(siFotomatonRadioButton)
-                    .addComponent(noFotomatonRadioButton)
-                    .addComponent(jLabel6)
-                    .addComponent(horasExtraDiscoSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel11)
+                    .addComponent(fechaEventoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
-                    .addComponent(horasExtraFotomatonSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(horasExtraFotomatonSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel6)
+                        .addComponent(horasExtraDiscoSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(44, 44, 44)
                 .addComponent(btnCrearEvento)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -290,13 +315,48 @@ public class AddEventoDialog extends javax.swing.JDialog {
         return furgonetaComboBox;
     }   
     
-    public JComboBox getComboBoxPacksBoda(){
-        return packsBodaComboBox;
+    public String getComboBoxPacksBoda(){
+        return (String) packsBodaComboBox.getSelectedItem();
     } 
     
-    public JComboBox getComboBoxPacksFiesta(){
-        return packsFiestaComboBox;
+    public boolean getProyeccionRadioButton(){
+        return proyeccionRadioButton1.isSelected();
     } 
+    
+    public boolean getKaraokeRadioButton(){
+        return karaokeRadioButton.isSelected();
+    } 
+    
+    public String getFechaEventoTextField(){
+        return fechaEventoTextField.getText();
+    }
+    
+    public JSpinner getHorasExtraFotomaton(){
+        return horasExtraFotomatonSpinner;
+    }
+    
+    public JSpinner getHorasExtraDisco(){
+        return horasExtraDiscoSpinner;
+    }
+    
+    public String comprobarRadioButtonsTipoEvento() {
+        if (tipoEventoBodaRadioButton.isSelected()) {
+            return "boda";
+        }
+        if (tipoEventoFiestaRadioButton.isSelected()) {
+            return "fiesta";
+        }
+        return null;
+    }
+    
+    public boolean comprobarRadioButtonFotomaton(){
+        return siFotomatonRadioButton.isSelected();     
+    }
+    
+    public void setComboBoxActionListener(ActionListener al){
+        this.packsBodaComboBox.addActionListener(al);
+    }
+    
     
     
 
@@ -305,12 +365,13 @@ public class AddEventoDialog extends javax.swing.JDialog {
     private javax.swing.JComboBox<String> clientesComboBox;
     private javax.swing.JComboBox<String> empleado1ComboBox;
     private javax.swing.JComboBox<String> empleado2ComboBox;
-    private javax.swing.ButtonGroup fotomatonButtonGroup;
+    private javax.swing.JTextField fechaEventoTextField;
     private javax.swing.JComboBox<String> furgonetaComboBox;
     private javax.swing.JSpinner horasExtraDiscoSpinner;
     private javax.swing.JSpinner horasExtraFotomatonSpinner;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -320,9 +381,10 @@ public class AddEventoDialog extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JRadioButton noFotomatonRadioButton;
+    private javax.swing.JRadioButton karaokeRadioButton;
+    private javax.swing.ButtonGroup packFiestaButtonGroup;
     private javax.swing.JComboBox<String> packsBodaComboBox;
-    private javax.swing.JComboBox<String> packsFiestaComboBox;
+    private javax.swing.JRadioButton proyeccionRadioButton1;
     private javax.swing.JRadioButton siFotomatonRadioButton;
     private javax.swing.JRadioButton tipoEventoBodaRadioButton;
     private javax.swing.ButtonGroup tipoEventoButtonGroup;

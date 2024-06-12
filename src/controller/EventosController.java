@@ -55,22 +55,12 @@ public class EventosController {
                 evento.getIdEvento(),
                 evento.getCliente(),
                 evento.getEmpleados(),
-                evento.getTipoEvento(),
                 evento.getTipoPack(),
-                evento.getDescripcionPack(),
-                evento.getImportePack(),
                 evento.getFurgoneta(),
                 evento.getFotomaton(),
                 evento.getKaraoke(),
                 evento.getProyeccion(),
-                evento.getImporteBaseFotomaton(),
-                evento.getImporteBaseKaraoke(),
-                evento.getImporteBaseProyeccion(),
-                evento.getHorasExtraDisco(),
-                evento.getHorasExtraFotomaton(),
-                evento.getImporteHorasExtraFotomaton(),
-                evento.getImporteTotal(),
-                evento.getImporteIVA(),
+                evento.getFechaEvento(),
                 evento.getImporteTotalConIVA()
             });
         }   

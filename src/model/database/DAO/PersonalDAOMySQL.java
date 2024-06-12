@@ -31,25 +31,25 @@ public class PersonalDAOMySQL implements PersonalDAO {
                 String apellidosEmpleado = resultSet.getString("apellidos");
                 String direccionEmpleado = resultSet.getString("direccion");
                 String telefonoEmpleado = resultSet.getString("telefono");
-                Personal personal = new Personal(idEmpleado, nombreEmpleado, apellidosEmpleado,direccionEmpleado,telefonoEmpleado);
+                Personal personal = new Personal(idEmpleado, nombreEmpleado, apellidosEmpleado, direccionEmpleado, telefonoEmpleado);
                 personalLista.add(personal);
                 System.out.println(personal);
             }
         } catch (SQLException e) {
-            e.printStackTrace(); 
+            e.printStackTrace();
         }
         return personalLista;
     }
 
     @Override
     public void eliminarEmpleado(int idEmpleado) {
-         String sql = "DELETE FROM Empleados WHERE id_empleado LIKE ?;";
+        String sql = "DELETE FROM Empleados WHERE id_empleado LIKE ?;";
         try {
             Connection connection = ConexionBD.getConnection();
             PreparedStatement pst = connection.prepareStatement(sql);
             pst.setInt(1, idEmpleado);
             pst.executeUpdate();
-            
+
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -58,9 +58,8 @@ public class PersonalDAOMySQL implements PersonalDAO {
     @Override
     public void agregarEmpleado(Personal personal) {
         String sql = "INSERT INTO Empleados (nombre, apellidos, direccion, telefono) VALUES (?, ?, ?, ?)";
-        try (Connection connection = ConexionBD.getConnection();
-             PreparedStatement pst = connection.prepareStatement(sql)) {
-            
+        try (Connection connection = ConexionBD.getConnection(); PreparedStatement pst = connection.prepareStatement(sql)) {
+
             pst.setString(1, personal.getNombre());
             pst.setString(2, personal.getApellidos());
             pst.setString(3, personal.getDireccion());
@@ -70,5 +69,20 @@ public class PersonalDAOMySQL implements PersonalDAO {
             ex.printStackTrace();
         }
     }
-    
+
+    @Override
+    public int obtenerIDempleadoPorNombre(String nombre) {
+        String sql = "Select id_empleado FROM Empleados where nombre = ?;";
+        try (Connection connection = ConexionBD.getConnection(); PreparedStatement pst = connection.prepareStatement(sql)) {
+            pst.setString(1, nombre);
+            ResultSet resultSet = pst.executeQuery();
+            if (resultSet.next()) {
+                return resultSet.getInt("id_empleado");
+            }
+        } catch (SQLException e) {
+
+        }
+        return 0;
+    }
+
 }

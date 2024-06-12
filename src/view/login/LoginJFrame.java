@@ -5,6 +5,8 @@
 package view.login;
 
 import java.awt.Color;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.ActionListener;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -21,6 +23,8 @@ public class LoginJFrame extends javax.swing.JFrame {
      */
     public LoginJFrame() {
         initComponents();
+        Image icono = Toolkit.getDefaultToolkit().getImage("src/resources/images/Disco Events Studio Icono App.png");
+        this.setIconImage(icono);
     }
 
     /**
